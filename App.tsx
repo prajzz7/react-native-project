@@ -42,6 +42,7 @@ function RootStack() {
       initialRouteName="SignIn"
       screenOptions={{
         headerStyle: {backgroundColor: 'tomato'},
+        animation: 'slide_from_right',
       }}>
       <Screen name="SignIn" component={SignIn} />
       <Screen
