@@ -3,31 +3,30 @@ import React from 'react';
 // import {Button} from '@react-navigation/elements';
 import {Formik} from 'formik';
 import * as Yup from 'yup';
+import SCREEN_NAMES from '../../utils/ScreenNames';
 
 const validationSchema = Yup.object().shape({
-  name: Yup.string().required('Name is reuqired').label('Username'),
+  username: Yup.string().required('Username is reuqired').label('Username'),
   password: Yup.string()
     // .matches(/\w*[a-z]\w*/, 'Password must have a small letter')
     // .matches(/\w*[A-Z]\w*/, 'Password must have a capital letter')
     .matches(/\d/, 'Password must have a number')
-    .min(8, ({min}) => `Password must be at least ${min} characters`)
+    .min(8, ({min}) => `Password must be at least ${min} characterss`)
     .required('Password is required')
     .label('Password'),
 });
 
-export default function SignIn({navigation}) {
-  console.log('navigation', navigation.navigate);
-
+export default function Login({navigation}) {
   return (
     <View style={styles.container}>
-      <Text onPress={() => navigation.navigate('Splash')}>SignIn</Text>
+      {/* <Text onPress={() => navigation.navigate('Splash')}>Please Login</Text> */}
       {/* <Button onPressOut={() => navigation.navigate('Splash')}>Sign In</Button> */}
       <Formik
         initialValues={{username: '', password: ''}}
         validationSchema={validationSchema}
         onSubmit={values => {
           console.log('values', values);
-          navigation.navigate('Splash');
+          navigation.navigate(SCREEN_NAMES.HOME);
         }}>
         {({
           handleChange,
@@ -43,6 +42,7 @@ export default function SignIn({navigation}) {
               value={values.username}
               onChangeText={handleChange('username')}
             />
+            {console.log('errors', errors)}
             <Text style={styles.errorText}>{errors?.username}</Text>
             <TextInput
               placeholder="Password"

@@ -24,11 +24,12 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
-import SplashScreen from './src/screen/splash';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import HomeScreen from './src/screen/home';
-import SignIn from './src/screen/signIn';
+import Login from './src/screen/auth/Login.tsx';
+import SCREEN_NAMES from './src/utils/ScreenNames.tsx';
+import SplashScreen from './src/screen/splash/index.tsx';
+import TabNavigator from './src/navigators/TabNavigator.tsx';
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -39,17 +40,19 @@ const {Navigator, Screen} = createNativeStackNavigator();
 function RootStack() {
   return (
     <Navigator
-      initialRouteName="SignIn"
+      initialRouteName={SCREEN_NAMES.LOGIN}
       screenOptions={{
         headerStyle: {backgroundColor: 'tomato'},
+        // headerShown: false,
         animation: 'slide_from_right',
       }}>
-      <Screen name="SignIn" component={SignIn} />
+      <Screen name={SCREEN_NAMES.LOGIN} component={Login} />
       <Screen
         name="Splash"
         component={SplashScreen}
         // options={{headerShown: false}}
       />
+      <Screen name={SCREEN_NAMES.HOME} component={TabNavigator} />
     </Navigator>
   );
 }
