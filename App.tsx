@@ -42,8 +42,8 @@ function RootStack() {
     <Navigator
       initialRouteName={SCREEN_NAMES.LOGIN}
       screenOptions={{
-        headerStyle: {backgroundColor: 'tomato'},
-        // headerShown: false,
+        // headerStyle: {backgroundColor: 'tomato'},
+        headerShown: false,
         animation: 'slide_from_right',
       }}>
       <Screen name={SCREEN_NAMES.LOGIN} component={Login} />

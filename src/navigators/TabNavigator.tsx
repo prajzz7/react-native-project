@@ -16,12 +16,10 @@ export default function TabNavigator() {
         name={SCREEN_NAMES.HOME}
         component={HomeScreen}
         options={{
+          title: 'Home',
           headerShown: false,
           tabBarIcon: () => (
-            <Image
-              style={{height: '30px', width: '30px'}}
-              source={IMAGES.HOME}
-            />
+            <Image style={{height: 25, width: 25}} source={IMAGES.HOME} />
           ),
         }}
       />
@@ -30,11 +28,8 @@ export default function TabNavigator() {
         component={Profile}
         options={{
           headerShown: false,
-          tabBarIcon: () => (
-            <Image
-              style={{height: '30px', width: '30px'}}
-              source={IMAGES.PROFILE}
-            />
+          tabBarIcon: ({focused}) => (
+            <Image style={{height: 25, width: 25}} source={IMAGES.PROFILE} />
           ),
         }}
       />
@@ -45,7 +40,7 @@ export default function TabNavigator() {
           headerShown: false,
           tabBarIcon: () => (
             <Image
-              style={{height: '30px', width: '30px'}}
+              style={{height: 25, width: 25}}
               source={IMAGES.SHOPPING_BAG}
             />
           ),
