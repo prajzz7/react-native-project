@@ -11,7 +11,7 @@ import React from 'react';
 import IMAGES from '../utils/ImagePath';
 import {MagnifyingGlassIcon} from 'react-native-heroicons/outline';
 import categories from '../utils/Categories';
-import Categories from '../components/Categories';
+import Categories from '../components/home/Categories';
 
 export default function HomeScreen({navigation}) {
   console.log('nav', navigation);

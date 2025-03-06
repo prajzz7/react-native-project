@@ -1,6 +1,6 @@
 import {View, Text, ScrollView, TouchableOpacity, Image} from 'react-native';
 import React from 'react';
-import categories from '../utils/Categories';
+import categories from '../../utils/Categories';
 
 export default function Categories() {
   return (
