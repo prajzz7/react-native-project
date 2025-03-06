@@ -84,7 +84,7 @@ export default function Login({navigation}) {
         validationSchema={validationSchema}
         onSubmit={values => {
           console.log('values', values);
-          navigation.navigate(SCREEN_NAMES.HOME);
+          // navigation.navigate(SCREEN_NAMES.HOME);
         }}>
         {({
           handleChange,

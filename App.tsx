@@ -30,6 +30,8 @@ import Login from './src/screen/auth/Login.tsx';
 import SCREEN_NAMES from './src/utils/ScreenNames.tsx';
 import SplashScreen from './src/screen/splash/index.tsx';
 import TabNavigator from './src/navigators/TabNavigator.tsx';
+import MFASetupScreen from './src/screen/auth/MFASetupScreen.tsx';
+import VerifyMFA from './src/screen/auth/VerifyMFA.tsx';
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -40,12 +42,14 @@ const {Navigator, Screen} = createNativeStackNavigator();
 function RootStack() {
   return (
     <Navigator
-      initialRouteName={SCREEN_NAMES.LOGIN}
+      initialRouteName={SCREEN_NAMES.MFA_SETUP}
       screenOptions={{
         // headerStyle: {backgroundColor: 'tomato'},
         headerShown: false,
         animation: 'slide_from_right',
       }}>
+      <Screen name={SCREEN_NAMES.MFA_SETUP} component={MFASetupScreen} />
+      <Screen name={SCREEN_NAMES.VERIFY_MFA} component={VerifyMFA} />
       <Screen name={SCREEN_NAMES.LOGIN} component={Login} />
       <Screen
         name="Splash"
